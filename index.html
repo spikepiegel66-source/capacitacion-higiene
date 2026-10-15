@@ -79,6 +79,27 @@
   footer{background:var(--tinta);color:#C8D3CC;padding:34px 0;font-size:.86rem;text-align:center;}
   footer .autor-pie{color:#fff;font-weight:700;font-size:1rem;margin-bottom:6px;}
   @media(max-width:760px){.hero .wrap,.dos{grid-template-columns:1fr;} nav a{margin-left:9px;font-size:.78rem;}}
+
+  .juego{background:var(--papel);border:1px solid var(--linea);border-radius:10px;padding:22px;margin-top:26px;}
+  .juego h3{margin-bottom:.3em;}
+  .sub{color:var(--suave);font-size:.93rem;margin:0 0 12px;}
+  .infografia{margin:26px 0 0;} .infografia svg{width:100%;height:auto;display:block;}
+  .explic{margin-top:8px;font-size:.9rem;background:#fff;border-left:3px solid var(--rojo);padding:8px 12px;border-radius:0 6px 6px 0;}
+  .vf-item,.rel-item{border:1px solid var(--linea);border-radius:8px;padding:14px;margin-top:12px;}
+  .vf-item p{margin:0 0 8px;font-weight:600;}
+  .vf-btns button{background:var(--verde-cl);border:1px solid var(--linea);padding:9px 18px;border-radius:6px;font-weight:600;cursor:pointer;margin-right:8px;color:var(--verde-osc);}
+  .vf-btns button:hover:not(:disabled){background:#cfe5d6;} .vf-btns button:disabled{opacity:.6;cursor:default;}
+  .vf-item.ok,.rel-item.ok{border-color:var(--verde);background:#F1F8F3;} .vf-item.mal,.rel-item.mal{border-color:var(--rojo);background:#FDF3F1;}
+  .fichas{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+  .ficha{background:var(--verde-cl);border:1px solid var(--verde);color:var(--verde-osc);padding:9px 14px;border-radius:20px;cursor:pointer;font-size:.92rem;}
+  .ficha:hover{background:#cfe5d6;}
+  .orden-sel{padding-left:22px;min-height:24px;} .orden-sel li{margin-bottom:5px;} .orden-sel li.ok{color:var(--verde);font-weight:600;} .orden-sel li.mal{color:var(--rojo);font-weight:600;}
+  .rel-item label{display:block;font-weight:600;margin-bottom:6px;} .rel-item select{width:100%;max-width:360px;padding:9px;border-radius:6px;border:1px solid var(--linea);font-size:.95rem;}
+  button.secundario{background:#fff;color:var(--verde-osc);border:2px solid var(--verde);}
+  .res{margin-top:12px;font-weight:700;color:var(--verde-osc);}
+  .final input{width:100%;max-width:420px;padding:11px;border:1px solid var(--linea);border-radius:6px;font-size:1rem;margin:6px 0 8px;}
+  .botones{display:flex;flex-wrap:wrap;gap:10px;} .botones button.enviar{margin-top:6px;}
+  .resumen{white-space:pre-wrap;background:#F6F8F6;border:1px solid var(--linea);border-radius:8px;padding:14px;font-size:.88rem;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -92,7 +113,7 @@
       <a href="#claves">5 claves</a>
       <a href="#encuesta">Encuesta</a>
       <a href="#capacitacion">Capacitación</a>
-      <a href="#autoevaluacion">Autoevaluación</a>
+      <a href="#juegos">Juegos</a>
     </nav>
   </div>
 </header>
@@ -333,16 +354,74 @@
   </div>
 </section>
 
-<section id="autoevaluacion">
+<section id="juegos">
   <div class="wrap">
     <div class="kicker">Practicá lo aprendido</div>
-    <h2>Autoevaluación</h2>
-    <p class="lead">Respondé las cinco preguntas y mirá cuántas acertaste.</p>
-    <div id="quiz"></div>
-    <button class="enviar" id="btn-corregir">Corregir</button>
-    <div id="resultado"></div>
+    <h2>Juegos y autoevaluación</h2>
+    <p class="lead">Un cuestionario de 15 preguntas y tres mini juegos. Si fallás, la página te dice cuáles fueron y por qué. Al final podés ver tu resultado y enviarlo.</p>
+
+    <figure class="infografia">
+      <svg viewBox="0 0 700 170" role="img" aria-label="Temperaturas clave: congelador a menos 18 grados, heladera cerca de 4 a 5 grados, cocción cerca de 70 grados">
+        <rect x="0" y="0" width="700" height="170" rx="12" fill="#fff" stroke="#D8E2DB"/>
+        <g text-anchor="middle" font-family="Georgia,serif">
+          <circle cx="120" cy="62" r="42" fill="#3B7FB8"/><text x="120" y="70" font-size="24" fill="#fff" font-weight="700">-18 °C</text>
+          <text x="120" y="130" font-size="16" fill="#1F4A36" font-weight="700">Congelador</text><text x="120" y="150" font-size="12" fill="#56645C">Conserva por más tiempo</text>
+          <circle cx="350" cy="62" r="42" fill="#6FB3D9"/><text x="350" y="70" font-size="24" fill="#fff" font-weight="700">4-5 °C</text>
+          <text x="350" y="130" font-size="16" fill="#1F4A36" font-weight="700">Heladera</text><text x="350" y="150" font-size="12" fill="#56645C">Frena a los microbios</text>
+          <circle cx="580" cy="62" r="42" fill="#B5382A"/><text x="580" y="70" font-size="24" fill="#fff" font-weight="700">70 °C</text>
+          <text x="580" y="130" font-size="16" fill="#1F4A36" font-weight="700">Cocción</text><text x="580" y="150" font-size="12" fill="#56645C">Mueren la mayoría de los microbios</text>
+        </g>
+      </svg>
+      <figcaption>Temperaturas de referencia: por debajo de 5 °C los microbios quedan inactivos; por encima de unos 70 °C la mayoría muere.</figcaption>
+    </figure>
+
+    <div class="juego">
+      <h3>📝 Cuestionario (15 preguntas)</h3>
+      <div id="quiz"></div>
+      <button class="enviar" id="btn-quiz">Corregir cuestionario</button>
+      <div class="res" id="res-quiz"></div>
+    </div>
+
+    <div class="juego">
+      <h3>✅ Juego 1: Verdadero o falso</h3>
+      <p class="sub">Tocá la respuesta que creas correcta. Se bloquea apenas respondés.</p>
+      <div id="vf"></div>
+      <div class="res" id="res-vf"></div>
+    </div>
+
+    <div class="juego">
+      <h3>🧼 Juego 2: Ordená el lavado de manos</h3>
+      <p class="sub">Tocá los pasos en el orden correcto, del primero al último.</p>
+      <div id="orden-pool" class="fichas"></div>
+      <p class="sub"><strong>Tu orden:</strong></p>
+      <ol id="orden-sel" class="orden-sel"></ol>
+      <button class="enviar secundario" id="btn-orden-reset">Empezar de nuevo</button>
+      <div class="res" id="res-orden"></div>
+    </div>
+
+    <div class="juego">
+      <h3>🔗 Juego 3: Relacioná cada dato con su valor</h3>
+      <p class="sub">Elegí en cada lista el valor que corresponde.</p>
+      <div id="rel"></div>
+      <button class="enviar" id="btn-rel">Comprobar</button>
+      <div class="res" id="res-rel"></div>
+    </div>
+
+    <div class="juego final">
+      <h3>📊 Tu resultado</h3>
+      <p class="sub">Completá lo que quieras y escribí tu nombre. El resumen incluye en qué preguntas fallaste.</p>
+      <input id="nombre" type="text" placeholder="Tu nombre y apellido" autocomplete="name">
+      <div class="botones">
+        <button class="enviar" id="btn-resumen">Ver mi resumen</button>
+        <button class="enviar secundario" id="btn-copiar">Copiar resumen</button>
+        <button class="enviar" id="btn-enviar" style="display:none">Enviar mis resultados</button>
+      </div>
+      <pre id="resumen" class="resumen" style="display:none"></pre>
+      <div class="res" id="res-final"></div>
+    </div>
   </div>
 </section>
+
 
 <section class="alt" id="faq">
   <div class="wrap">
@@ -380,30 +459,208 @@
 </footer>
 
 <script>
-  var preguntas = [
-    {q:"¿Cuánto tiempo mínimo hay que frotar las manos con jabón?", o:["5 segundos","20 segundos","Un segundo basta"], c:1},
-    {q:"¿Qué es la contaminación cruzada?", o:["Cocinar demasiado la comida","Pasar microbios de un alimento a otro","Congelar alimentos"], c:1},
-    {q:"¿Cuánto tiempo máximo puede estar comida lista a temperatura ambiente?", o:["2 horas","8 horas","Todo el día"], c:0},
-    {q:"¿Cuál es la forma correcta de descongelar la carne?", o:["Sobre la mesada toda la noche","En la heladera","Al sol"], c:1},
-    {q:"En la heladera, ¿dónde va la carne cruda?", o:["Arriba, sobre lo cocido","Abajo, para que no gotee sobre lo listo","Afuera, tapada"], c:1}
-  ];
-  var cont = document.getElementById('quiz');
+// ====== CONFIGURACIÓN ======
+// Correo que recibe los resultados. Si queda vacío, el botón "Enviar" no aparece.
+var CORREO = "";
+// ===========================
+function $(id){return document.getElementById(id);}
+function mezclar(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+var R = {};
+
+// ---------- CUESTIONARIO ----------
+var preguntas = [
+ {q:"¿Cuánto tiempo mínimo hay que frotar las manos con jabón?", o:["5 segundos","20 segundos","Un segundo basta"], c:1, e:"Se frota al menos 20 segundos, incluyendo dorso, entre los dedos y debajo de las uñas."},
+ {q:"¿Qué es la contaminación cruzada?", o:["Cocinar demasiado la comida","Pasar microbios de un alimento a otro","Congelar alimentos"], c:1, e:"Ocurre cuando los microbios pasan de un alimento (por ejemplo crudo) a otro, por tablas, cuchillos o manos."},
+ {q:"¿Cuánto tiempo máximo puede estar comida lista a temperatura ambiente?", o:["2 horas","8 horas","Todo el día"], c:0, e:"No más de 2 horas, y menos si hace calor o está al sol."},
+ {q:"¿Cuál es la forma correcta de descongelar la carne?", o:["Sobre la mesada toda la noche","En la heladera","Al sol"], c:1, e:"Se descongela en la heladera. Sobre la mesada o al sol los microbios se multiplican."},
+ {q:"En la heladera, ¿dónde va la carne cruda?", o:["Arriba, sobre lo cocido","Abajo, para que no gotee sobre lo listo","Afuera, tapada"], c:1, e:"Abajo y tapada, para que no gotee sobre alimentos ya listos."},
+ {q:"¿A qué temperatura debe estar la heladera?", o:["Unos 4 °C (no más de 5 °C)","12 °C","20 °C"], c:0, e:"Cerca de 4 °C. Por debajo de 5 °C los microbios quedan inactivos."},
+ {q:"¿A qué temperatura debe estar el congelador?", o:["0 °C","-18 °C","5 °C"], c:1, e:"El congelador debe estar a -18 °C."},
+ {q:"¿Desde qué temperatura mueren la mayoría de los microbios dañinos?", o:["Unos 30 °C","Unos 50 °C","Más de 70 °C"], c:2, e:"Por encima de unos 70 °C la mayoría de los microorganismos perjudiciales muere."},
+ {q:"Si no sabés si el agua es segura, ¿qué conviene hacer?", o:["Usarla igual","Hervirla al menos 1 minuto","Dejarla al sol una hora"], c:1, e:"Hervirla al menos 1 minuto y guardarla en un recipiente limpio y tapado."},
+ {q:"¿Cuándo hay que lavarse las manos?", o:["Solo cuando se ven sucias","Antes de cocinar, después del baño y después de tocar basura","Solo al terminar el día"], c:1, e:"Siempre antes de tocar comida y después del baño, de manejar basura, plata, animales o carne cruda."},
+ {q:"Si un alimento empezó a descongelarse, ¿qué se hace?", o:["Se vuelve a congelar","Se consume pronto y no se vuelve a congelar","Se deja afuera hasta el otro día"], c:1, e:"Se consume pronto. Nunca se debe volver a congelar."},
+ {q:"¿Qué hacer con los huevos cascados?", o:["Usarlos igual","No consumirlos","Usarlos solo en ensaladas"], c:1, e:"No se consumen huevos cascados."},
+ {q:"¿Hay que lavar frutas y verduras aunque se pelen?", o:["No, si se pelan no hace falta","Sí, con abundante agua","Solo si están feas"], c:1, e:"Sí. Al pelar o cortar, los microbios de la superficie pasan a la parte comestible."},
+ {q:"¿Qué es una infección alimentaria?", o:["Comer alimentos con microorganismos vivos que se multiplicaron","Comer demasiado","Comer comida fría"], c:0, e:"Se produce al ingerir microorganismos vivos (bacterias, virus o parásitos). La intoxicación, en cambio, es por toxinas."},
+ {q:"¿Quiénes corren más riesgo con los alimentos contaminados?", o:["Solo los adultos sanos","Niños, personas mayores y personas con defensas bajas","Nadie"], c:1, e:"Niños, personas mayores y personas con el sistema inmunitario débil."}
+];
+var qc = $('quiz');
+preguntas.forEach(function(p,i){
+  var d=document.createElement('div'); d.className='quiz-q'; d.id='q'+i;
+  var h='<p>'+(i+1)+'. '+p.q+'</p>';
+  p.o.forEach(function(op,j){h+='<label><input type="radio" name="q'+i+'" value="'+j+'"> '+op+'</label>';});
+  h+='<div class="explic" style="display:none"></div>';
+  d.innerHTML=h; qc.appendChild(d);
+});
+$('btn-quiz').addEventListener('click',function(){
+  var ok=0, fall=[];
   preguntas.forEach(function(p,i){
-    var d = document.createElement('div'); d.className='quiz-q'; d.id='q'+i;
-    var h = '<p>'+(i+1)+'. '+p.q+'</p>';
-    p.o.forEach(function(op,j){ h += '<label><input type="radio" name="q'+i+'" value="'+j+'"> '+op+'</label>'; });
-    d.innerHTML = h; cont.appendChild(d);
+    var sel=document.querySelector('input[name="q'+i+'"]:checked');
+    var caja=$('q'+i), ex=caja.querySelector('.explic');
+    caja.classList.remove('ok','mal');
+    if(sel && parseInt(sel.value,10)===p.c){ok++; caja.classList.add('ok'); ex.style.display='none';}
+    else{
+      caja.classList.add('mal'); fall.push((i+1)+'. '+p.q);
+      ex.style.display='block';
+      ex.innerHTML='<strong>'+(sel?'Fallaste.':'Sin responder.')+'</strong> Respuesta correcta: <em>'+p.o[p.c]+'</em>. '+p.e;
+    }
   });
-  document.getElementById('btn-corregir').addEventListener('click', function(){
-    var ok = 0;
-    preguntas.forEach(function(p,i){
-      var sel = document.querySelector('input[name="q'+i+'"]:checked');
-      var caja = document.getElementById('q'+i);
-      caja.classList.remove('ok','mal');
-      if(sel && parseInt(sel.value,10)===p.c){ ok++; caja.classList.add('ok'); } else { caja.classList.add('mal'); }
+  R.quiz={ok:ok,total:preguntas.length,failed:fall};
+  var t='Acertaste '+ok+' de '+preguntas.length+'. ';
+  if(fall.length){t+='Fallaste las preguntas: '+fall.map(function(f){return f.split('.')[0];}).join(', ')+'. Mirá la explicación en cada una.';}
+  else{t+='¡Excelente, sin errores!';}
+  $('res-quiz').textContent=t;
+});
+
+// ---------- JUEGO 1: VERDADERO O FALSO ----------
+var vfs=[
+ {t:"El alcohol en gel siempre reemplaza al jabón, aunque haya grasa o tierra.", v:false, e:"Con grasa o tierra hace falta agua y jabón."},
+ {t:"Si un alimento se ve bien pero huele raro, se puede comer igual.", v:false, e:"Los productos sospechosos por color, olor o sabor se desechan."},
+ {t:"Un alimento que empezó a descongelarse no se debe volver a congelar.", v:true, e:"Se consume pronto y nunca se recongela."},
+ {t:"Se puede usar la misma tabla para carne cruda y ensalada sin lavarla.", v:false, e:"Eso es contaminación cruzada. Hay que usar otra tabla o lavarla bien."},
+ {t:"Los microbios peligrosos siempre se notan por el olor o el aspecto.", v:false, e:"Las alteraciones por microorganismos normalmente no se aprecian a simple vista."},
+ {t:"Las frutas y verduras se lavan con abundante agua antes de comerlas.", v:true, e:"Es una recomendación básica de higiene."},
+ {t:"Los huevos cascados se pueden usar si se cocinan poco.", v:false, e:"No se consumen huevos cascados."},
+ {t:"Hervir el agua al menos 1 minuto ayuda a hacerla más segura.", v:true, e:"Y se guarda en un recipiente limpio y tapado."},
+ {t:"La comida cocinada puede quedar 6 horas sobre la mesa sin problema.", v:false, e:"El máximo es de 2 horas a temperatura ambiente."},
+ {t:"Quien cobra plata debe lavarse las manos antes de tocar la comida.", v:true, e:"El dinero pasa por muchas manos y trae microbios."}
+];
+var vfRes={ok:0,resp:0,failed:[]};
+var vfc=$('vf');
+vfs.forEach(function(s,i){
+  var d=document.createElement('div'); d.className='vf-item'; d.id='vf'+i;
+  d.innerHTML='<p>'+(i+1)+'. '+s.t+'</p><div class="vf-btns"><button data-i="'+i+'" data-v="1">Verdadero</button><button data-i="'+i+'" data-v="0">Falso</button></div><div class="explic" style="display:none"></div>';
+  vfc.appendChild(d);
+});
+vfc.addEventListener('click',function(ev){
+  var b=ev.target; if(b.tagName!=='BUTTON')return;
+  var i=parseInt(b.getAttribute('data-i'),10), val=b.getAttribute('data-v')==='1';
+  var box=$('vf'+i); if(box.classList.contains('hecho'))return;
+  box.classList.add('hecho');
+  var ok=(val===vfs[i].v);
+  box.classList.add(ok?'ok':'mal');
+  var ex=box.querySelector('.explic'); ex.style.display='block';
+  ex.innerHTML='<strong>'+(ok?'¡Correcto!':'Fallaste.')+'</strong> Era '+(vfs[i].v?'verdadero':'falso')+'. '+vfs[i].e;
+  box.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+  vfRes.resp++; if(ok)vfRes.ok++; else vfRes.failed.push((i+1)+'. '+vfs[i].t);
+  R.vf={ok:vfRes.ok,total:vfs.length,failed:vfRes.failed.slice(),respondidas:vfRes.resp};
+  if(vfRes.resp===vfs.length){
+    $('res-vf').textContent='Acertaste '+vfRes.ok+' de '+vfs.length+'. '+(vfRes.failed.length?'Fallaste: '+vfRes.failed.map(function(f){return f.split('.')[0];}).join(', ')+'.':'¡Sin errores!');
+  }
+});
+
+// ---------- JUEGO 2: ORDENAR ----------
+var pasos=["Mojar las manos con agua limpia","Enjabonar palmas, dorso, entre los dedos y uñas","Frotar al menos 20 segundos","Enjuagar con abundante agua limpia","Secar con toalla limpia o papel descartable"];
+var ordenSel=[];
+function pintarOrden(){
+  var pool=$('orden-pool'); pool.innerHTML='';
+  mezclar(pasos.map(function(_,i){return i;})).forEach(function(i){
+    if(ordenSel.indexOf(i)>-1)return;
+    var b=document.createElement('button'); b.className='ficha'; b.textContent=pasos[i];
+    b.addEventListener('click',function(){ordenSel.push(i);pintarSel();});
+    pool.appendChild(b);
+  });
+}
+var ordenBase=mezclar(pasos.map(function(_,i){return i;}));
+function pintarOrden2(){
+  var pool=$('orden-pool'); pool.innerHTML='';
+  ordenBase.forEach(function(i){
+    if(ordenSel.indexOf(i)>-1)return;
+    var b=document.createElement('button'); b.className='ficha'; b.textContent=pasos[i];
+    b.addEventListener('click',function(){ordenSel.push(i);pintarSel();});
+    pool.appendChild(b);
+  });
+}
+function pintarSel(){
+  var ol=$('orden-sel'); ol.innerHTML='';
+  ordenSel.forEach(function(i){var li=document.createElement('li'); li.textContent=pasos[i]; ol.appendChild(li);});
+  pintarOrden2();
+  if(ordenSel.length===pasos.length){
+    var ok=0, fall=[];
+    ordenSel.forEach(function(i,pos){
+      if(i===pos){ok++;}
+      else{fall.push('Paso '+(pos+1)+': elegiste "'+pasos[i]+'", y correspondía "'+pasos[pos]+'"');}
     });
-    document.getElementById('resultado').textContent = 'Acertaste '+ok+' de '+preguntas.length+'. ' + (ok===preguntas.length ? '¡Excelente!' : 'Repasá las secciones y volvé a intentar.');
+    R.orden={ok:ok,total:pasos.length,failed:fall};
+    $('res-orden').innerHTML=(fall.length?'Acertaste '+ok+' de '+pasos.length+'. En estos pasos fallaste:<br>'+fall.join('<br>'):'¡Perfecto! Orden correcto.');
+    Array.prototype.forEach.call(ol.children,function(li,pos){li.className=(ordenSel[pos]===pos)?'ok':'mal';});
+  } else {$('res-orden').textContent='';}
+}
+$('btn-orden-reset').addEventListener('click',function(){ordenSel=[];ordenBase=mezclar(ordenBase);delete R.orden;pintarSel();});
+pintarSel();
+
+// ---------- JUEGO 3: RELACIONAR ----------
+var rels=[
+ {k:"Tiempo mínimo para frotar las manos con jabón", v:"20 segundos"},
+ {k:"Máximo de comida lista a temperatura ambiente", v:"2 horas"},
+ {k:"Temperatura de la heladera", v:"Unos 4 a 5 °C"},
+ {k:"Temperatura del congelador", v:"-18 °C"},
+ {k:"Temperatura en que mueren la mayoría de los microbios", v:"Más de 70 °C"},
+ {k:"Tiempo para hervir agua dudosa", v:"Al menos 1 minuto"}
+];
+var vals=mezclar(rels.map(function(r){return r.v;}));
+var rc=$('rel');
+rels.forEach(function(r,i){
+  var d=document.createElement('div'); d.className='rel-item'; d.id='rel'+i;
+  var h='<label for="rs'+i+'">'+(i+1)+'. '+r.k+'</label><select id="rs'+i+'"><option value="">— Elegí —</option>';
+  vals.forEach(function(v){h+='<option>'+v+'</option>';});
+  h+='</select><div class="explic" style="display:none"></div>';
+  d.innerHTML=h; rc.appendChild(d);
+});
+$('btn-rel').addEventListener('click',function(){
+  var ok=0,fall=[];
+  rels.forEach(function(r,i){
+    var s=$('rs'+i).value, box=$('rel'+i), ex=box.querySelector('.explic');
+    box.classList.remove('ok','mal');
+    if(s===r.v){ok++;box.classList.add('ok');ex.style.display='none';}
+    else{box.classList.add('mal');fall.push((i+1)+'. '+r.k);ex.style.display='block';ex.innerHTML='<strong>'+(s?'Fallaste.':'Sin responder.')+'</strong> Correcto: <em>'+r.v+'</em>.';}
   });
+  R.rel={ok:ok,total:rels.length,failed:fall};
+  $('res-rel').textContent='Acertaste '+ok+' de '+rels.length+'. '+(fall.length?'Fallaste: '+fall.map(function(f){return f.split('.')[0];}).join(', ')+'.':'¡Sin errores!');
+});
+
+// ---------- RESUMEN Y ENVÍO ----------
+function armarResumen(){
+  var n=($('nombre').value||'').trim()||'(sin nombre)';
+  var L=['Resultados - Inocuidad alimentaria Campo 9','Nombre: '+n,'Fecha: '+new Date().toLocaleString('es-PY'),''];
+  var nombres={quiz:'Cuestionario',vf:'Juego 1 Verdadero o falso',orden:'Juego 2 Ordenar lavado de manos',rel:'Juego 3 Relacionar'};
+  var hay=false;
+  ['quiz','vf','orden','rel'].forEach(function(k){
+    if(R[k]){hay=true; L.push(nombres[k]+': '+R[k].ok+' de '+R[k].total);
+      if(R[k].failed.length){L.push('  Fallos:'); R[k].failed.forEach(function(f){L.push('   - '+f);});}
+      else if(k!=='vf' || R[k].respondidas===R[k].total){L.push('  Sin fallos');}
+    } else {L.push(nombres[k]+': no completado');}
+  });
+  return {texto:L.join('\n'),hay:hay,nombre:n};
+}
+$('btn-resumen').addEventListener('click',function(){
+  var r=armarResumen(), pre=$('resumen'); pre.style.display='block'; pre.textContent=r.texto;
+  $('res-final').textContent=r.hay?'':'Todavía no completaste ninguna actividad.';
+});
+$('btn-copiar').addEventListener('click',function(){
+  var r=armarResumen(); $('resumen').style.display='block'; $('resumen').textContent=r.texto;
+  if(navigator.clipboard){navigator.clipboard.writeText(r.texto).then(function(){$('res-final').textContent='Resumen copiado.';},function(){$('res-final').textContent='No se pudo copiar. Seleccioná el texto y copialo.';});}
+  else{$('res-final').textContent='Seleccioná el texto y copialo.';}
+});
+if(CORREO){
+  $('btn-enviar').style.display='inline-block';
+  $('btn-enviar').addEventListener('click',function(){
+    var r=armarResumen();
+    if(!($('nombre').value||'').trim()){$('res-final').textContent='Escribí tu nombre antes de enviar.';return;}
+    if(!r.hay){$('res-final').textContent='Completá al menos una actividad antes de enviar.';return;}
+    $('resumen').style.display='block'; $('resumen').textContent=r.texto;
+    $('res-final').textContent='Enviando...';
+    fetch('https://formsubmit.co/ajax/'+CORREO,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({_subject:'Resultados inocuidad Campo 9 - '+r.nombre,nombre:r.nombre,resultados:r.texto,_captcha:'false'})
+    }).then(function(x){return x.json();}).then(function(j){
+      $('res-final').textContent=(j && (j.success===true||j.success==='true'))?'¡Resultados enviados! Gracias.':'No se pudo enviar. Usá "Copiar resumen" y mandalo por WhatsApp.';
+    }).catch(function(){$('res-final').textContent='No se pudo enviar (revisá tu conexión). Usá "Copiar resumen".';});
+  });
+}
+
 </script>
 </body>
 </html>
